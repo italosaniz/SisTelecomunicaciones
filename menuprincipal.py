@@ -2,7 +2,7 @@ print("******************** INGIENERIA EN TELECOMUNICACIONES *******************
 print("")
 def principal():
     print(" Ingrese en que modo se encuentra: ")
-    print("    1.-Profesor")
+    print("    1.-Secretaria")
     print("    2.-Estudiante")
     print("    3.-SALIR")
     try:
@@ -13,7 +13,7 @@ def principal():
         principal()
 
     if op==1:
-        profesor()
+        secretaria ()
     elif op==2:
         estudiante()
     elif op==3:
@@ -22,16 +22,4 @@ def principal():
         print("Digite un numero de las opciones mostradas")
         principal()
         
-def salir():
-    import sys
-    res=input("Esta seguro que desea salir? SI/NO: ")
-    if(res.lower()=="no"):
-        principal()
-    elif(res.lower()=="si"):
-        import sys
-        sys.exit(2)
-    else:
-        print("Usted no digito bien la respuesta")
-        salir()
-
 principal()
