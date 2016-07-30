@@ -4,7 +4,8 @@ def principal():
     print(" Ingrese en que modo se encuentra: ")
     print("    1.-Secretaria")
     print("    2.-Estudiante")
-    print("    3.-SALIR")
+    print("    3.-Docente")
+    print("    4.-SALIR")
     try:
         op=int(input(" Su opcion es: "))
     except:
@@ -17,6 +18,8 @@ def principal():
     elif op==2:
         estudiante()
     elif op==3:
+        docente()
+    elif op==4:
         salir()
     else :
         print("Digite un numero de las opciones mostradas")
