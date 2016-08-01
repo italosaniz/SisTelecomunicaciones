@@ -118,12 +118,17 @@ def constancia():
     print("DATOS DEL ALUMNO:")
     print("C.U.I:  \tNOMBRE Y APELLIDOS:  \t\tFECHA DE NACIMIENTO(AAAMMDD):  \tDNI:  ")
     print("==============================================================================================")
+    cod=int(input("Ingrese su cui:_"))
     for alumno in cursor:
-        alu=str(alumno[3])+'\t'+str(alumno[0])+""+str(alumno[1])+""+str(alumno[2])+'\t'+'\t'+str(alumno[4])+'\t'+'\t'+'\t'+str(alumno[5])
-        print(str(alu))
+        if int(alumno[3])==cod:
+            alu=str(alumno[3])+'\t'+str(alumno[0])+""+str(alumno[1])+""+str(alumno[2])+'\t'+'\t'+str(alumno[4])+'\t'+'\t'+'\t'+str(alumno[5])
+            print(str(alu))
+        else:
+            print("usted no se ha matriculado")
+            break
     print("")
     print("DATOS DE ESCUELA")
-    print("===============================================================")
+    print("==============================================================================================")
     print("NIVEL: Pre-grado \tESCUELA:Ingenieria en Telecomunicaciones ")
     print("")
     print("Queda matriculado en la(s) siguiente(s) asignatura(s):")
