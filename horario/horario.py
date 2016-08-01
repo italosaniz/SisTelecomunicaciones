@@ -39,6 +39,8 @@ def menu():
                 print(str(grad))
             con.close()
             print('')
+            menu()
+        
         elif x==2:
             import os, sys, sqlite3
             con = sqlite3.connect('horario304-b.s3db')
@@ -54,7 +56,6 @@ def menu():
                 print(str(grad))
             con.close()
             print('')
-            os.system("cls")
             menu()
         elif x==3:
             import os, sys, sqlite3
@@ -71,7 +72,6 @@ def menu():
                 print(str(grad))
             con.close()
             print('')
-            os.system("cls")
             menu()
         elif x==4:
             import os, sys, sqlite3
@@ -88,6 +88,7 @@ def menu():
                 print(str(grad))
             con.close()
             print('')
+            menu()
         else:
             print("Por favor Ingrese la opcion correcta")
             print("")
