@@ -1,30 +1,62 @@
 import os
 import sys
 import sqlite3
+def verificar(x):
+    for i in x:
+        if (ord(i)<65 or ord(i)>90) and (ord(i)<97 or ord(i)>122) and ord(i)!=32:
+            return False
+    return True
 def matricula():
     con=sqlite3.connect('constancia.s3db')
     print("ESTAS EN EL MENU DE MATRICULA")
     print("")
     print("DATOS DEL ALUMNO")
     nombre=input("Digite el Nombre del alumno:_")
+    while(not verificar(nombre)):
+        print("Intentelo de nuevo")
+        nombre=input("Digite el Nombre del alumno:_")
     apellido1=input("Digite el Apellido Paterno:_")
+    while (not verificar(apellido1)):
+        print("Intentelo de nuevo")
+        apellido1=input("Digite el Apellido Paterno:_")
     apellido2=input("Digite el Apellido Materno:_")
-    cui=input("Digite su cui:_")
-    nacimiento=input("Digite su fecha de nacimiento(Anho,Mes,Dia):_")
-    dni=input("Digite su documento de identidad:_")
+    while (not verificar(apellido2)):
+        print("Intentelo de nuevo")
+        apellido2=input("Digite el Apellido Materno:_")
+    salida1=True
+    while salida1:
+        try:
+            cui=int(input("Digite su cui:_"))
+            nacimiento=int(input("Digite su fecha de nacimiento(Anho,Mes,Dia):_"))
+            dni=int(input("Digite su documento de identidad:_"))
+            salida1=False
+        except:
+            print("Ingreso no valido, ingrese solo numeros")
     cursor=con.cursor()
     print("CURSOS A MATRICULAR")
     cont=int(input("Ingreso numero de cursos a matricular:_"))
     for i in range (1, cont+1):
         curso=input("Ingrese el nombre del curso a matricular:_")
-        codigo=input("Ingrese el codigo del curso:_")
+        salida2=True
+        while salida2:
+            try :
+                codigo=int(input("Ingrese el codigo del curso:_"))
+                matricula=int(input("Ingrese su n° de matricula del curso:_"))
+                credito=float(input("Ingrese la cantidad de creditos del curso:_"))
+                salida2=False
+            except:
+                print("Ingreso no valido, ingrese solo numeros")
         ciclo=input("Ingrese el ciclo del curso (A, B):_")
+        while (not verificar(ciclo)):
+            print("Intentelo de nuevo")
+            ciclo=input("Ingrese el ciclo del curso (A,B):_")
         grupo=input("Ingrese el grupo a matricularse:_")
-        matricula=input("Ingrese su n° de matricula del curso:_")
-        credito=input("Ingrese la cantidad de creditos del curso:_")
-        cursor.execute("insert into Curso(codigo, NombreAsignatura, Ciclo, Grupo, Matricula, Creditos, Cui) values ('"+codigo+"', '"+curso+"', '"+ciclo+"', '"+grupo+"', '"+matricula+"', '"+credito+"', '"+cui+"')")
+        while (not verificar(grupo)):
+            print("Intentelo de nuevo")
+            grupo=input("Ingrese el grupo a matricularse:_")
+        cursor.execute("insert into Curso(codigo, NombreAsignatura, Ciclo, Grupo, Matricula, Creditos, Cui) values ('"+str(codigo)+"', '"+curso+"', '"+ciclo+"', '"+grupo+"', '"+str(matricula)+"', '"+str(credito)+"', '"+str(cui)+"')")
     os.system('cls')
-    cursor.execute("insert into alumno(nombre, ApellidoPaterno, ApellidoMaterno, Cui, Dni, FechaNacimiento) values('"+nombre+"', '"+apellido1+"','"+apellido2+"','"+cui+"','"+dni+"','"+nacimiento+"')")
+    cursor.execute("insert into alumno(nombre, ApellidoPaterno, ApellidoMaterno, Cui, Dni, FechaNacimiento) values('"+nombre+"', '"+apellido1+"','"+apellido2+"','"+str(cui)+"','"+str(dni)+"','"+str(nacimiento)+"')")
     con.commit()
     con.close()
 
@@ -35,7 +67,13 @@ def modificar():
     cursor.execute("select * from alumno")
     for alumno in cursor:
         estudiante.append(alumno)
-    cod=input("Ingrese su cui:_")
+    salida3=True
+    while salida3:
+        try:
+            cod=int(input("Ingrese su cui:_"))
+            salida3=False
+        except:
+            print("Ingreso no valido, ingrese solo numeros")
     for alumno in estudiante:
         if int(alumno[3])==int(cod):
             nombre=alumno[0]
@@ -46,8 +84,17 @@ def modificar():
             encotrado=True
             break
     nombre=input("Digite el Nombre del alumno:_")
+    while(not verificar(nombre)):
+        print("Intentelo de nuevo")
+        nombre=input("Digite el Nombre del alumno:_")
     apellido1=input("Digite el Apellido Paterno:_")
+    while(not verificar(apellido1)):
+        print("Intentelo de nuevo")
+        apellido1=input("Digite el Apellido Paterno:_")
     apellido2=input("Digite el Apellido Materno:_")
+    while(not verificar(apellido2)):
+        print("Intentelo de nuevo")
+        apellido2=input("Digite el Apellido Materno:_")
     nacimiento=input("Digite su fecha de nacimiento(Anho,Mes,Dia):_")
     dni=input("Digite su documento de identidad:_")
     sql="update alumno set Nombre='"+nombre+"', ApellidoPaterno='"+apellido1+"', ApellidoMaterno='"+apellido2+"', Dni='"+dni+"', FechaNacimiento='"+nacimiento+"' where Cui="+cod
@@ -62,6 +109,10 @@ def constancia():
     con=sqlite3.connect('constancia.s3db')
     cursor=con.cursor()
     cursor.execute("select * from alumno")
+    print("*********UNIVERSIDAD NACIONAL DE SAN AGUSTIN*********")
+    print("")
+    print("***** ESTUDIA INFORMATICA, CURSOS MENSUALES CON CERTIFICACION OFICIAL-INFOUNSA***")
+    print("")
     print("**************CONSTANCIA DE MATRICULA*************")
     print("")
     print("DATOS DEL ALUMNO:")
@@ -72,8 +123,8 @@ def constancia():
         print(str(alu))
     print("")
     print("DATOS DE ESCUELA")
-    print("===============================")
-    print("NIVEL: Pregrado \tESCUELA: ")
+    print("===============================================================")
+    print("NIVEL: Pre-grado \tESCUELA:Ingenieria en Telecomunicaciones ")
     print("")
     print("Queda matriculado en la(s) siguiente(s) asignatura(s):")
     print("Codigo  \tNombre de la Asignatura  \tCiclo  \tGrupo  \tMatricula  \tCreditos")

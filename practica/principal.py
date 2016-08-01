@@ -1,4 +1,4 @@
-print("******* MATRICULA *******")
+print("******* PROGRAMA QUE MATRICULA E IMPRIME LA CONSTANCIA DE MATRICULA *******")
 import os
 import sys
 from modulog import *
