@@ -52,7 +52,7 @@ def menu():
             print("\t  Cod  \t Hora \t\t Lunes \t\t Martes \t\t Miercoles \t\t Jueves \t\t Viernes")
             print("**************************************************************************************** ")
             for grado in cursor:
-                grad='\t'+str(horario304b[0])+'\t'+str(horario304b[1])+'\t'+str(horario304b[2])+'\t'+str(horario304b[3])+'\t'+str(horario304b[4])+'\t'+str(horario304b[5])+'\t'+str(horario304b[6])
+                grad='\t'+str(grado[0])+'\t'+str(grado[1])+'\t'+str(grado[2])+'\t'+str(grado[3])+'\t'+str(grado[4])+'\t'+str(grado[5])+'\t'+str(grado[6])
                 print(str(grad))
             con.close()
             print('')
@@ -68,7 +68,7 @@ def menu():
             print("\t  Cod  \t Hora \t\t Lunes \t\t Martes \t\t Miercoles \t\t Jueves \t\t Viernes")
             print("***************************************************************************************** ")
             for grado in cursor:
-                grad='\t'+str(horario405b[0])+'\t'+str(horario405b[1])+'\t'+str(horario405b[2])+'\t'+str(horario405b[3])+'\t'+str(horario405b[4])+'\t'+str(horario405b[5])+'\t'+str(horario405b[6])
+                grad='\t'+str(grado[0])+'\t'+str(grado[1])+'\t'+str(grado[2])+'\t'+str(grado[3])+'\t'+str(grado[4])+'\t'+str(grado[5])+'\t'+str(grado[6])
                 print(str(grad))
             con.close()
             print('')
@@ -84,7 +84,7 @@ def menu():
             print("\t  Cod  \t Hora \t\t Lunes \t\t Martes \t\t Miercoles \t\t Jueves \t\t Viernes")
             print("***************************************************************************************** ")
             for grado in cursor:
-                grad='\t'+str(labinfo[0])+'\t'+str(labinfo[1])+'\t'+str(labinfo[2])+'\t'+str(labinfo[3])+'\t'+str(labinfo[4])+'\t'+str(labinfo[5])+'\t'+str(labinfo[6])
+                grad='\t'+str(grado[0])+'\t'+str(grado[1])+'\t'+str(grado[2])+'\t'+str(grado[3])+'\t'+str(grado[4])+'\t'+str(grado[5])+'\t'+str(grado[6])
                 print(str(grad))
             con.close()
             print('')
