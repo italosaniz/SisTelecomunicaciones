@@ -154,4 +154,3 @@ def salir():
         import sys
         sys.exit(2)
 menu()
-
