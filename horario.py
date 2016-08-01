@@ -141,7 +141,7 @@ def ver():
     print("\t Hora \t\tLunes \t\t Martes \t Miercoles \t Jueves \t Viernes")
     print("***************************************************************************** ")
     for grado in cursor:
-        grad='\t'+str(crear[0])+'\t'+str(crear[1])+'\t\t'+str(crear[2])+'\t\t'+str(crear[3])+'\t\t'+str(crear[4])+'\t\t'+str(crear[5])
+        grad='\t'+str(grado[0])+'\t'+str(grado[1])+'\t\t'+str(grado[2])+'\t\t'+str(grado[3])+'\t\t'+str(grado[4])+'\t\t'+str(grado[5])
         print(str(grad))
     con.close()
     print('')
