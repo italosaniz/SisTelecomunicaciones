@@ -1,0 +1,6 @@
+{
+  "name": "Sistelecomunicaciones",
+  "tagline": "Trabajo final para el curso de Programación 2",
+  "body": "### Bienvenidos a nuestro proyecto Usando SQlite + Phyton.\r\nEl trabajo realizado busca hacer una simulación del sistema que se aplica en nuestra escuela, de este modo para realizarlo se usaron dos programas que permiten facilitar el uso de una base de datos: “python” que permite crear nuestro código y “SQlite administrator” que permite crear la base de datos. \r\n\r\n### Autores y contribuidores\r\n* Saniz calderon Italo\r\n* Castellanos Morales fatima\r\n* Ortiz Miranda Erick\r\n* Ticona Lazaro Danitza\r\n\r\n### Support or Contact\r\nHaving trouble with Pages? Check out our [documentation](https://help.github.com/pages) or [contact support](https://github.com/contact) and we’ll help you sort it out.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
