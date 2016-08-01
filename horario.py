@@ -1,14 +1,16 @@
 #HORARIO
 def menu():
     import os, sys
-    print("****************************")
+    os.system("cls")
+    print("\n****************************")
     print("         HORARIOS")
     print("****************************")
     print("")
     print("[1] Ver horarios ")
     print("[2] Hacer mi horario")
     print("[3] Ver mi horario")
-    print("[4] Salir ")
+    print("[4] Regresar al menu anterior")
+    print("[5] Salir ")
     try:
         op=int(input("Seleccione la opcion deseada: "))
     except:
@@ -100,6 +102,9 @@ def menu():
     elif op==3:
         ver()
     elif op==4:
+        import danitza
+        danitza.menu1()
+    elif op==5:
         salir()
     else:
         print("Por favor digite un numero de los mencionados en la opcion")
