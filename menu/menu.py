@@ -92,7 +92,16 @@ def agregar():
     print("                     Estas en el menu agregado")
     print("")
     name=input("Digite el nombre completo del Alumno: ")
-    cui=input("Digite el cui del Alumno: ")
+    while True:
+        try:
+            cui=input("Digite el cui del Alumno: ")
+            break
+        except:
+            print("Los digitos ingresados no pertenecen a un CUI ")
+    cui=str(cui)
+    if (len(cui)!=6):
+        print("Intentelo de nuevo")
+        cui=input("Digite el cui del Alumno: ")
     os.system("cls")
     cursor=con.cursor()
     cursor.execute("insert into grado (Nombre, Cui) values('"+name+"','"+cui+"')")
